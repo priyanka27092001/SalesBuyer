@@ -1,0 +1,18 @@
+<mat-drawer-container fullScreen>
+  <mat-drawer-content>
+    <app-wfxtitlebar [itemJsonDef]="titleBarJsonDef" [arrBreadCrumb]="arrBreadCrumb" (addButtonClick)="addNewRow($event)">
+    </app-wfxtitlebar>
+    <wfx-content-container>
+      <wfx-toolbar [quickSearchValue]="quickSearchValue" [quickSearchPlaceHolder]="{ placeholder: this.quickSearchPlaceholder }" [recordCount]="recordCountData"
+        [countjsonDef]="recordCountDef" [suppressSortTypeList]='true' [suppressExtendedMenu]="true" (quickSearch)="onQuickSearch($event)"
+        [suppressAdvanceSearch]="true">
+      </wfx-toolbar>
+      <app-wfxgrid #gridWFXbuyerdepartment [gridID]="'gridWFXbuyerdepartment'" [parentComponent]="this" [dataKeyField]="'ID'" [colDef]="colDef"
+        (gridReady)="OnGridReady($event)" [suppressDefaultContextMenu]="true" (cellValueChanged)="onCellValueChanged($event)" [rowData]="rowData"
+        [suppressFiltersFromToolPanel]="true" [sideBar]="false" [suppressStatusBar]="true" [autoSizeAllColumn]="false">
+      </app-wfxgrid>
+      <wfx-bottom-panel [itemsCount]="itemsCount" [toolsList]="toollist" (OnClick)="toolsOnClick($event)" [gridApi]="gridApi">
+      </wfx-bottom-panel>
+    </wfx-content-container>
+  </mat-drawer-content>
+</mat-drawer-container>
